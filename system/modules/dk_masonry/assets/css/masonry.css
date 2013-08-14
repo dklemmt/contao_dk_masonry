@@ -1,0 +1,7 @@
+/* dk_masonry global styles */
+.masonry .image_container img {
+	vertical-align: bottom;
+}
+.masonry > div, .masonry > section {
+	float: left;
+}

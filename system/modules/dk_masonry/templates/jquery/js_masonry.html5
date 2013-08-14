@@ -1,0 +1,56 @@
+<script>
+(function($) {
+	var $masonry = $('#masonry_<?php echo $this->id; ?>');
+	$(document).ready(function() {
+		$masonry.addClass("loading");
+		$("#masonry_<?php echo $this->id; ?> > div").addClass("loading").find("img").css({ opacity: 0, visibility: "hidden" });
+		initMasonry();
+		$masonry.imagesLoaded()
+			.progress(function(instance, image) {
+				$(image.img).css({ visibility: "visible" }).animate({ opacity: 1 }, 400).closest('.loading').removeClass('loading');
+				$masonry.masonry();
+			})
+			.always(function() {
+				$masonry.removeClass("loading");
+			});
+	});
+	function initMasonry() {
+	    $masonry.masonry({
+			itemSelector: '.masonry_gallery',
+<?php
+	$oComma = $iComma = false; // o(uter)/i(nner) comma after option needed?
+
+	// global options
+	if ($this->columnWidth) {		
+		echo ($oComma == true ? ', ' : '') . $this->columnWidth;
+		$oComma = true;
+	}
+	if ($this->gutter) {
+		echo ($oComma == true ? ', ' : '') . $this->gutter;
+		$oComma = true;
+	}
+	if ($this->isFitWidth) {
+		echo ($oComma == true ? ', ' : '') . $this->isFitWidth;
+		$oComma = true;
+	}
+	if ($this->isOriginLeft) {
+		echo ($oComma == true ? ', ' : '') . $this->isOriginLeft;
+		$oComma = true;
+	}
+	if ($this->isOriginTop) {
+		echo ($oComma == true ? ', ' : '') . $this->isOriginTop;
+		$oComma = true;
+	}
+	if ($this->isResizeBound) {
+		echo ($oComma == true ? ', ' : '') . $this->isResizeBound;
+		$oComma = true;
+	}
+	if ($this->transitionDuration) {
+		echo ($oComma == true ? ', ' : '') . $this->transitionDuration;
+		$oComma = true;
+	}
+?>
+		});
+	};
+})(jQuery);
+</script>
