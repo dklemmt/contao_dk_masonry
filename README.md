@@ -3,7 +3,7 @@ Masonry - ein intelligentes Grid Layout für Contao
 
 ***Masonry*** ist ein JavaScript-Plugin von David DeSandro, das ein intelligentes *Grid Layout* implementiert. Masonry, aus dem Englischen für Mauerwerk, platziert die enthaltenen Elemente anhand ihrer Größe und des zur Verfügung stehenden vertikalen Platzes optimal verzahnt/versetzt wie ein Mauerwerk. 
 
-Nach der Installation dieser Erweiterung steht innerhalb von Contao ein zusätzliches Inhatlselement zur Verfügung, das von der Core-Galerie abgeleitet wurde und diese um die neue Funktionalität erweitert. Es heißt *Masonry - Galerie*.
+Nach der Installation dieser Erweiterung steht innerhalb von Contao ein zusätzliches Inhaltselement zur Verfügung, das von der Core-Galerie abgeleitet wurde und diese um die neue Funktionalität erweitert. Es heißt *Masonry - Galerie*.
 
 Möglichkeiten der Erweiterung und von Masonry
 ---------------------------------------------

@@ -3,8 +3,16 @@
 (function($) {
 	var $masonry = $('#masonry_<?php echo $this->id; ?>');
 	$(document).ready(function() {
+<?php
+	if ($this->gutterClass) {
+		echo "\t\t" . '$masonry.prepend("<div class=\'' . $this->gutterClass . '\'></div>");' . "\n";
+	}
+	if ($this->columnWidthClass) {
+		echo "\t\t" . '$masonry.prepend("<div class=\'' . $this->columnWidthClass . '\'></div>");' . "\n";
+	}		
+?>
 		$masonry.addClass("loading");
-		$("#masonry_<?php echo $this->id; ?> > div").addClass("loading").find("img").css({ opacity: 0, visibility: "hidden" });
+		$("#masonry_<?php echo $this->id; ?> .masonry_gallery").addClass("loading").find("img").css({ opacity: 0, visibility: "hidden" });
 		initMasonry();
 		$masonry.imagesLoaded()
 			.progress(function(instance, image) {

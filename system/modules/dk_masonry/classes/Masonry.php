@@ -50,11 +50,13 @@ class Masonry extends \Frontend
 							break;
 					}
 				}
+				break;
 
 			case 'class':
 				if (isset($objMasonry->dk_msryColumnWidthClass) && $objMasonry->dk_msryColumnWidthClass != '')
 				{
-					$objTemplateJs->columnWidth = 'columnWidth: "' . $objMasonry->dk_msryColumnWidthClass . "'";
+					$objTemplateJs->columnWidthClass = $objMasonry->dk_msryColumnWidthClass;
+					$objTemplateJs->columnWidth = 'columnWidth: \'.' . $objMasonry->dk_msryColumnWidthClass . '\'';
 				}
 				break;
 		}
@@ -73,11 +75,13 @@ class Masonry extends \Frontend
 							break;
 					}
 				}
+				break;
 
 			case 'class':
 				if (isset($objMasonry->dk_msryGutterClass) && $objMasonry->dk_msryGutterClass != '')
 				{
-					$objTemplateJs->gutter = 'gutter: "' . $objMasonry->dk_msryGutterClass . "'";
+					$objTemplateJs->gutterClass = $objMasonry->dk_msryGutterClass;
+					$objTemplateJs->gutter = 'gutter: \'.' . $objMasonry->dk_msryGutterClass . '\'';
 				}
 				break;
 		}
