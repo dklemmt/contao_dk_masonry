@@ -20,9 +20,17 @@
 	},
 	"require": {
 		"php": ">=5.3",
-		"contao/core": "3.*"
+		"contao/core": "3.*",
+		"contao-community-alliance/composer-installer": "*"
 	},
 	"replace": {
 		"contao-legacy/dk_masonry": "*"
+	},
+	"extra": {
+		"contao": {
+			"sources": {
+				"contao": "system/modules/dk_masonry"
+			}
+		}
 	}
 }
