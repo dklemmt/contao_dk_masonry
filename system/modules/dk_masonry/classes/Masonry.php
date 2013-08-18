@@ -61,7 +61,7 @@ class Masonry extends \Frontend
 				break;
 		}
 
-		switch ($objMasonry->dk_msryColumnWidthSelect)
+		switch ($objMasonry->dk_msryGutterSelect)
 		{
 			case 'fixed':
 				// Masonry option 'gutter': default value is '0'
