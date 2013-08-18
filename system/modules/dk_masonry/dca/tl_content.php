@@ -17,14 +17,12 @@
  */
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][]			= 'dk_msryColumnWidthSelect';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][]			= 'dk_msryGutterSelect';
-//$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][]			= 'dk_msryIsFitWidth';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__']	[]			= 'dk_msryThemeSelect';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_gallery']			= '{type_legend},type,headline;{source_legend},dk_msryMultiSRC,dk_msrySortBy;{masonry_image_legend},dk_msryImageSize,dk_msryFullsize,dk_msryNumberOfItems;{masonry_layout_legend},dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_gallery']			= '{type_legend},type,headline;{source_legend},dk_msryMultiSRC,dk_msrySortBy;{masonry_image_legend},dk_msryImageSize,dk_msryFullsize,dk_msryNumberOfItems;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryColumnWidthSelect_fixed'] = 'dk_msryColumnWidth';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryColumnWidthSelect_class'] = 'dk_msryColumnWidthClass';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryGutterSelect_fixed']	 = 'dk_msryGutter';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryGutterSelect_class']	 = 'dk_msryGutterClass';
-//$GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryIsFitWidth']	= 'dk_msryIsCentered';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryThemeSelect_external'] = 'dk_msryThemeSRC';
 
 
@@ -78,6 +76,15 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryNumberOfItems'] = array
   	'inputType'			=> 'text',
   	'eval'				=> array('maxlength' => 4, 'rgxp' => 'digit'),
 	'sql'				=> "smallint(5) unsigned NOT NULL default '0'"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryIsFitWidth'] = array
+(
+	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryIsFitWidth'],
+	'exclude'			=> true,
+	'inputType'			=> 'checkbox',
+//	'eval'				=> array('submitOnChange' => true, 'tl_class' => 'w50'),
+	'sql'				=> "char(1) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryColumnWidthSelect'] = array
@@ -180,24 +187,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryTransitionDuration'] = array
 	'inputType'			=> 'text',
 	'eval'				=> array('maxlength' => 10, 'rgxp' => 'digit', 'tl_class' => 'w50'),
 	'sql'				=> "int(10) NOT NULL default '400'"
-);
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryIsFitWidth'] = array
-(
-	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryIsFitWidth'],
-	'exclude'			=> true,
-	'inputType'			=> 'checkbox',
-	'eval'				=> array('submitOnChange' => true, 'tl_class' => 'w50'),
-	'sql'				=> "char(1) NOT NULL default ''"
-);
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryIsCentered'] = array
-(
-	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryIsCentered'],
-	'exclude'			=> true,
-	'inputType'			=> 'checkbox',
-	'eval'				=> array('tl_class' => 'w50'),
-	'sql'				=> "char(1) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryThemeSelect'] = array

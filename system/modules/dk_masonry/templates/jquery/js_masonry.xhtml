@@ -10,6 +10,9 @@
 	if ($this->columnWidthClass) {
 		echo "\t\t" . '$masonry.prepend("<div class=\'' . $this->columnWidthClass . '\'></div>");' . "\n";
 	}		
+	if ($this->isFitWidth) {
+		echo "\t\t" . '$masonry.css("margin", "0 auto");' . "\n";
+	}
 ?>
 		$masonry.addClass("loading");
 		$("#masonry_<?php echo $this->id; ?> .masonry_gallery").addClass("loading").find("img").css({ opacity: 0, visibility: "hidden" });
