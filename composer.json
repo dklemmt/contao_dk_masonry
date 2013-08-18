@@ -29,7 +29,7 @@
 	"extra": {
 		"contao": {
 			"sources": {
-				"contao": "system/modules/dk_masonry"
+				"system/modules/dk_masonry": "system/modules/dk_masonry"
 			}
 		}
 	}
