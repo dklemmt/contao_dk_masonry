@@ -20,7 +20,7 @@
 	},
 	"require": {
 		"php": ">=5.3",
-		"contao/core": "3.*",
+		"contao/core": "3.*"
 	},
 	"replace": {
 		"contao-legacy/dk_masonry": "*"
