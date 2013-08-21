@@ -28,38 +28,28 @@
 	});
 	function initMasonry() {
 	    $masonry.masonry({
-			itemSelector: '.masonry_gallery',
 <?php
-	$oComma = $iComma = false; // o(uter)/i(nner) comma after option needed?
-
-	// global options
+	echo 'itemSelector: ".masonry_gallery"';
 	if ($this->columnWidth) {		
-		echo ($oComma == true ? ', ' : '') . $this->columnWidth;
-		$oComma = true;
+		echo ', ' . $this->columnWidth;
 	}
 	if ($this->gutter) {
-		echo ($oComma == true ? ', ' : '') . $this->gutter;
-		$oComma = true;
+		echo ', ' . $this->gutter;
 	}
 	if ($this->isFitWidth) {
-		echo ($oComma == true ? ', ' : '') . $this->isFitWidth;
-		$oComma = true;
+		echo ', ' . $this->isFitWidth;
 	}
 	if ($this->isOriginLeft) {
-		echo ($oComma == true ? ', ' : '') . $this->isOriginLeft;
-		$oComma = true;
+		echo ', ' . $this->isOriginLeft;
 	}
 	if ($this->isOriginTop) {
-		echo ($oComma == true ? ', ' : '') . $this->isOriginTop;
-		$oComma = true;
+		echo ', ' . $this->isOriginTop;
 	}
 	if ($this->isResizeBound) {
-		echo ($oComma == true ? ', ' : '') . $this->isResizeBound;
-		$oComma = true;
+		echo ', ' . $this->isResizeBound;
 	}
 	if ($this->transitionDuration) {
-		echo ($oComma == true ? ', ' : '') . $this->transitionDuration;
-		$oComma = true;
+		echo ', ' . $this->transitionDuration;
 	}
 ?>
 		});
