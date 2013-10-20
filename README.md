@@ -23,5 +23,4 @@ Tipps/Hinweise
 --------------
 
 * Damit Masonry gestartet wird, muß im Seitenlayout *jQuery* zum Layout hinzugefügt werden.
-* Technisch bedingt wird für alle Masonry-Elemente auf der gleichen Seite das selbe Theme benutzt.
 * Die Elementbreiten **sollten** per CSS definiert werden und zwar unabhängig der Einstellung der Spaltenbreite - selbst wenn diese gleich sind. Unterläßt man es, kann dies unter Umständen zu Layout-Fehlern führen.
