@@ -48,6 +48,13 @@ class ContentMasonryGallery extends \ContentElement
 	 * Template
 	 * @var string
 	 */
+	protected $strTemplateJs = 'js_masonry';
+
+
+	/**
+	 * Template
+	 * @var string
+	 */
 	protected $strTemplateGallery = 'masonry_gallery';
 
 
@@ -78,6 +85,11 @@ class ContentMasonryGallery extends \ContentElement
 		if ($this->dk_msryHtmlTpl)
 		{
 			$this->strTemplate = $this->dk_msryHtmlTpl;
+		}
+		// replace default (JS) template with chosen one
+		if ($this->dk_msryJsTpl)
+		{
+			$this->strTemplateJs = $this->dk_msryJsTpl;
 		}
 
 		return parent::generate();
@@ -280,13 +292,13 @@ class ContentMasonryGallery extends \ContentElement
 			$this->Template->images = $objTemplate->parse();
 	
 			// --- create FE template for javascript caller
-			$objTemplateJs = new \FrontendTemplate($this->dk_msryJsTpl);
+			$objTemplateJs = new \FrontendTemplate($this->strTemplateJs);
 		
 			// (unique) Element id will be used for unique HTML id element
 			$objTemplateJs->id = $this->id;
 
 			$objMasonry = new Masonry();
-			$objMasonry->createTemplateData($this->id, $this->Template, $objTemplateJs);
+			$objMasonry->createTemplateData($this->Template, $objTemplateJs);
 		}
 		else
 		{

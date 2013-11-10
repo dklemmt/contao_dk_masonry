@@ -17,8 +17,11 @@
  */
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][]			= 'dk_msryColumnWidthSelect';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][]			= 'dk_msryGutterSelect';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__']	[]			= 'dk_msryThemeSelect';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][]			= 'dk_msryThemeSelect';
+
 $GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_gallery']			= '{type_legend},type,headline;{source_legend},dk_msryMultiSRC,dk_msrySortBy;{masonry_image_legend},dk_msryImageSize,dk_msryFullsize,dk_msryNumberOfItems;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_start']			= '{type_legend},type,headline;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryColumnWidthSelect_fixed'] = 'dk_msryColumnWidth';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryColumnWidthSelect_class'] = 'dk_msryColumnWidthClass';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryGutterSelect_fixed']	 = 'dk_msryGutter';

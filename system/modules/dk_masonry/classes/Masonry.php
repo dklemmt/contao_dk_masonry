@@ -28,14 +28,16 @@ namespace Dirch\masonry;
 class Masonry extends \Frontend 
 {
 
-	public function createTemplateData($msryPk, \Template $objTemplateHtml, \Template $objTemplateJs)
+	public function createTemplateData(\Template $objTemplateHtml, \Template $objTemplateJs)
 	{
-		$objMasonry = \ContentModel::findByPk($msryPk);
+		$objMasonry = \ContentModel::findByPk($objTemplateHtml->id);
 		if ($objMasonry === null)
 		{
 			return;
 		}
-		
+
+		$objTemplateJs->type = $objMasonry->type;
+
 		switch ($objMasonry->dk_msryColumnWidthSelect)
 		{
 			case 'fixed':
