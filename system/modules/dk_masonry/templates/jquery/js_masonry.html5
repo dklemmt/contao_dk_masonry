@@ -2,11 +2,9 @@
 (function($) {
 	var $masonry = $('#masonry_<?php echo $this->id; ?>');
 	$(document).ready(function() {
-<?php
-	if ($this->isFitWidth) {
-		echo "\t\t" . '$masonry.css("margin", "0 auto");' . "\n";
-	}
-?>
+<?php if ($this->isFitWidth): ?>
+		$masonry.css("margin", "0 auto");
+<?php endif; ?>
 		$masonry.addClass("loading").children()
 <?php if ($this->type == 'masonry_gallery'): ?>
 			.addClass("loading").find("img").css({ opacity: 0, visibility: "hidden" });

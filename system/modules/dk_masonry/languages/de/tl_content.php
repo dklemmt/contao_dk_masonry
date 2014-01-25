@@ -3,12 +3,12 @@
 /**
  * Contao Open Source CMS
  * 
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  * 
  * @package   masonry
  * @author    Dirk Klemmt
  * @license   MIT
- * @copyright Dirk Klemmt 2013
+ * @copyright Dirk Klemmt 2013-2014
  */
 
 

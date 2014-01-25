@@ -3,12 +3,12 @@
 /**
  * Contao Open Source CMS
  * 
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  * 
  * @package   masonry
  * @author    Dirk Klemmt
  * @license   MIT
- * @copyright Dirk Klemmt 2013
+ * @copyright Dirk Klemmt 2013-2014
  */
 
 
@@ -22,7 +22,8 @@ namespace Dirch\masonry;
  * Class ContentMasonryStart 
  *
  * Front end content element "masonry_start" (wrapper start).
- * @copyright  Dirk Klemmt 2013
+ *
+ * @copyright  Dirk Klemmt 2013-2014
  * @author     Dirk Klemmt
  * @package    masonry
  */
@@ -53,6 +54,7 @@ class ContentMasonryStart extends \ContentElement
 		{
 			$this->strTemplate = $this->dk_msryHtmlTpl;
 		}
+
 		// replace default (JS) template with chosen one
 		if ($this->dk_msryJsTpl)
 		{
@@ -86,10 +88,6 @@ class ContentMasonryStart extends \ContentElement
 			$this->strTemplate = 'be_wildcard';
 			$this->Template = new \BackendTemplate($this->strTemplate);
 			$this->Template->title = $this->headline;
-			if (version_compare(VERSION, '3.1', '<'))
-			{ 
-				$this->Template->wildcard = '### MASONRY WRAPPER START ###';
-			} 
 		}
 	}
 }

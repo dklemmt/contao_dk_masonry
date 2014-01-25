@@ -3,12 +3,12 @@
 /**
  * Contao Open Source CMS
  * 
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  * 
  * @package   masonry
  * @author    Dirk Klemmt
  * @license   MIT
- * @copyright Dirk Klemmt 2013
+ * @copyright Dirk Klemmt 2013-2014
  */
 
 
@@ -22,7 +22,8 @@ namespace Dirch\masonry;
  * Class ContentMasonryStop 
  *
  * Front end content element "masonry_stop" (wrapper stop).
- * @copyright  Dirk Klemmt 2013
+ *
+ * @copyright  Dirk Klemmt 2013-2014
  * @author     Dirk Klemmt
  * @package    masonry
  */
@@ -43,6 +44,27 @@ class ContentMasonryStop extends \ContentElement
 	{
 		if (TL_MODE == 'FE')
 		{
+			// search for first visible masonry start element with a position before end element
+			$objStartElement = \Database::getInstance()
+				->prepare("SELECT id, dk_cfsHtmlTpl
+						   FROM   tl_content
+						   WHERE  type = 'masonry_start' AND pid = ? AND sorting < ? AND invisible != '1'
+						   ORDER  by sorting DESC")
+				->limit(1)
+				->execute($this->pid, $this->sorting);
+
+			if ($objStartElement->numRows < 1)
+			{
+				$this->log('masonry start element is missing!', 'ContentMasonryStop compile()', TL_ERROR);
+				return;
+			}
+
+			// replace default (HTML) template with the one from masonry start element
+			if (isset($objStartElement->dk_msryHtmlTpl) && $objStartElement->dk_msryHtmlTpl != '')
+			{
+				$this->strTemplate = $objStartElement->dk_msryHtmlTpl;
+			}
+			
 			// --- create FE template for carouFredSel element
 			$this->Template = new \FrontendTemplate($this->strTemplate);
 			$this->Template->setData($this->arrData);
@@ -52,10 +74,6 @@ class ContentMasonryStop extends \ContentElement
 		{
 			$this->strTemplate = 'be_wildcard';
 			$this->Template = new \BackendTemplate($this->strTemplate);
-			if (version_compare(VERSION, '3.1', '<'))
-			{ 
-				$this->Template->wildcard = '### MASONRY WRAPPER STOP ###';
-			} 
 		}
 	}
 }

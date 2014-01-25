@@ -3,24 +3,24 @@
 /**
  * Contao Open Source CMS
  * 
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  * 
  * @package   masonry
  * @author    Dirk Klemmt
  * @license   MIT
- * @copyright Dirk Klemmt 2013
+ * @copyright Dirk Klemmt 2013-2014
  */
 
 
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][]			= 'dk_msryColumnWidthSelect';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][]			= 'dk_msryGutterSelect';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][]			= 'dk_msryThemeSelect';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'dk_msryColumnWidthSelect';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'dk_msryGutterSelect';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'dk_msryThemeSelect';
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_gallery']			= '{type_legend},type,headline;{source_legend},dk_msryMultiSRC,dk_msrySortBy;{masonry_image_legend},dk_msryImageSize,dk_msryFullsize,dk_msryNumberOfItems;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_start']			= '{type_legend},type,headline;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_gallery'] = '{type_legend},type,headline;{source_legend},dk_msryMultiSRC,dk_msrySortBy;{masonry_image_legend},dk_msryImageSize,dk_msryFullsize,dk_msryNumberOfItems;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_start'] = '{type_legend},type,headline;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryColumnWidthSelect_fixed'] = 'dk_msryColumnWidth';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryColumnWidthSelect_class'] = 'dk_msryColumnWidthClass';
@@ -36,8 +36,8 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryMultiSRC'] = array
 (
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryMultiSRC'],
 	'exclude'			=> true,
-	'inputType'			=> 'msryFileTree',
-	'eval'				=> array('multiple' => true, 'fieldType' => 'checkbox', 'orderField' => 'orderSRC', 'files' => true, 'mandatory' => true),
+	'inputType'			=> 'fileTree',
+	'eval'				=> array('multiple' => true, 'fieldType' => 'checkbox', 'orderField' => 'orderSRC', 'files' => true, 'isGallery' => true, 'mandatory' => true),
 	'sql'				=> "blob NULL"
 );
 
@@ -219,7 +219,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryHtmlTpl'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryHtmlTpl'],
 	'exclude'			=> true,
 	'inputType'			=> 'select',
-	'options_callback'	=> array('tl_content_dk_msry', 'getHtmlTemplates'),
+	'options_callback'	=> function() { return Backend::getTemplateGroup('ce_masonry'); },
 	'eval'				=> array('maxlength' => 255, 'tl_class' => 'w50 clr'),
 	'sql'				=> "varchar(255) NOT NULL default ''"
 );
@@ -229,7 +229,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryJsTpl'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryJsTpl'],
 	'exclude'			=> true,
 	'inputType'			=> 'select',
-	'options_callback'	=> array('tl_content_dk_msry', 'getJsTemplates'),
+	'options_callback'	=> function() { return Backend::getTemplateGroup('js_masonry'); },
 	'eval'				=> array('maxlength' => 255, 'tl_class' => 'w50'),
 	'sql'				=> "varchar(255) NOT NULL default ''"
 );
@@ -239,51 +239,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryGalleryTpl'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryGalleryTpl'],
 	'exclude'			=> true,
 	'inputType'			=> 'select',
-	'options_callback'	=> array('tl_content_dk_msry', 'getMasonryGalleryTemplates'),
+	'options_callback'	=> function() { return Backend::getTemplateGroup('masonry_gallery'); },
 	'eval'				=> array('maxlength' => 255, 'tl_class' => 'w50'),
 	'sql'				=> "varchar(255) NOT NULL default ''"
 );
-
-
-/**
- * Class tl_content_dk_msry 
- *
- * @copyright  Dirk Klemmt 2013
- * @author     Dirk Klemmt
- * @package    masonry
- */
-class tl_content_dk_msry extends tl_content
-{
-
-	/**
-	 * Return all masonry content element templates as array
-	 *
-	 * @return array
-	 */
-	public function getHtmlTemplates()
-	{
-		return $this->getTemplateGroup('ce_masonry');
-	}
-
-
-	/**
-	 * Return all masonry JavaScript templates as array
-	 *
-	 * @return array
-	 */
-	public function getJsTemplates()
-	{
-		return $this->getTemplateGroup('js_masonry');
-	}
-
-
-	/**
-	 * Return all masonry gallery templates as array
-	 *
-	 * @return array
-	 */
-	public function getMasonryGalleryTemplates()
-	{
-		return $this->getTemplateGroup('masonry_gallery');
-	}
-}

@@ -3,12 +3,12 @@
 /**
  * Contao Open Source CMS
  * 
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  * 
  * @package   masonry
  * @author    Dirk Klemmt
  * @license   MIT
- * @copyright Dirk Klemmt 2013
+ * @copyright Dirk Klemmt 2013-2014
  */
 
 
@@ -32,10 +32,7 @@ ClassLoader::addClasses(array
 	// Elements
 	'Dirch\masonry\ContentMasonryGallery'	=> 'system/modules/dk_masonry/elements/ContentMasonryGallery.php',
 	'Dirch\masonry\ContentMasonryStart'		=> 'system/modules/dk_masonry/elements/ContentMasonryStart.php',
-	'Dirch\masonry\ContentMasonryStop'		=> 'system/modules/dk_masonry/elements/ContentMasonryStop.php',
-
-	// Widgets
-	'Dirch\masonry\MasonryFileTree'			=> 'system/modules/dk_masonry/widgets/MasonryFileTree.php'
+	'Dirch\masonry\ContentMasonryStop'		=> 'system/modules/dk_masonry/elements/ContentMasonryStop.php'
 ));
 
 
