@@ -46,7 +46,7 @@ class ContentMasonryStop extends \ContentElement
 		{
 			// search for first visible masonry start element with a position before end element
 			$objStartElement = \Database::getInstance()
-				->prepare("SELECT id, dk_cfsHtmlTpl
+				->prepare("SELECT id, dk_msryHtmlTpl
 						   FROM   tl_content
 						   WHERE  type = 'masonry_start' AND pid = ? AND sorting < ? AND invisible != '1'
 						   ORDER  by sorting DESC")
