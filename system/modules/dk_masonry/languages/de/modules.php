@@ -13,6 +13,12 @@
 
 
 /**
+ * Back end modules
+ */
+$GLOBALS['TL_LANG']['MOD']['dk_masonry'][0] = 'Masonry - ein intelligentes Grid Layout';
+
+
+/**
  * Front end modules
  */
 $GLOBALS['TL_LANG']['FMD']['masonry_category'] = 'Masonry';
