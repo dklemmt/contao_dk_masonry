@@ -16,9 +16,9 @@
  * Content elements
  */
 $GLOBALS['TL_CTE']['masonry_category'] = array(
-	'masonry_gallery'	=> 'masonry\ContentMasonryGallery',
-	'masonry_start'		=> 'masonry\ContentMasonryStart',
-	'masonry_stop'		=> 'masonry\ContentMasonryStop'
+	'masonry_gallery' => 'masonry\ContentMasonryGallery',
+	'masonry_start' => 'masonry\ContentMasonryStart',
+	'masonry_stop' => 'masonry\ContentMasonryStop'
 );
 
 
