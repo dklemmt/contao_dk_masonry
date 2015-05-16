@@ -197,7 +197,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryThemeSelect'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryThemeSelect'],
 	'exclude'			=> true,
 	'inputType'			=> 'select',
-	'default'			=> 'default',
 	'default'			=> 'standard',
 	'options'			=> array('standard', 'external'),
 	'reference'			=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryThemeSelect'],
