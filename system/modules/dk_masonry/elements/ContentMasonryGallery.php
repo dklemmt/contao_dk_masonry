@@ -268,8 +268,6 @@ class ContentMasonryGallery extends \ContentElement
 		}
 
 		$intMaxWidth = (TL_MODE == 'BE') ? 160 : $GLOBALS['TL_CONFIG']['maxImageWidth'];
-		$intMaxImageWidth = 0;
-		$intMaxImageHeight = 0;
 		$strLightboxId = 'lightbox[lb' . $this->id . ']';
 		$body = array();
 
