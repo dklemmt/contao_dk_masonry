@@ -1,7 +1,7 @@
 {
 	"name": "dklemmt/contao_dk_masonry",
 	"description": "Implementation of Masonry as extension for Contao Open Source CMS",
-	"keywords": ["contao", "gallery", "masonry"],
+	"keywords": ["contao", "gallery", "grid", "masonry"],
 	"type": "contao-module",
 	"license": "MIT",
 	"authors": [
@@ -14,8 +14,6 @@
 	"support": {
 		"email": "dirch@quantentunnel.de",
 		"issues": "https://github.com/dklemmt/contao_dk_masonry/issues",
-		"wiki": "https://github.com/dklemmt/contao_dk_masonry/wiki",
-		"irc": "irc://irc.freenode.org/contao.dev",
 		"source": "https://github.com/dklemmt/contao_dk_masonry"
 	},
 	"require": {
