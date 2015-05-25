@@ -24,8 +24,8 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_start'] = '{type_legend},t
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryColumnWidthSelect_fixed'] = 'dk_msryColumnWidth';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryColumnWidthSelect_class'] = 'dk_msryColumnWidthClass';
-$GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryGutterSelect_fixed']	 = 'dk_msryGutter';
-$GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryGutterSelect_class']	 = 'dk_msryGutterClass';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryGutterSelect_fixed'] = 'dk_msryGutter';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryGutterSelect_class'] = 'dk_msryGutterClass';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryThemeSelect_external'] = 'dk_msryThemeSRC';
 
 
@@ -74,10 +74,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryFullsize'] = array
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryNumberOfItems'] = array
 (
-  	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryNumberOfItems'],
+	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryNumberOfItems'],
 	'exclude'			=> true,
-  	'inputType'			=> 'text',
-  	'eval'				=> array('maxlength' => 4, 'rgxp' => 'digit'),
+	'inputType'			=> 'text',
+	'eval'				=> array('maxlength' => 4, 'rgxp' => 'digit'),
 	'sql'				=> "smallint(5) unsigned NOT NULL default '0'"
 );
 
@@ -103,7 +103,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryColumnWidthSelect'] = array
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryColumnWidth'] = array
 (
-  	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidth'],
+	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidth'],
 	'exclude'			=> true,
 	'inputType'			=> 'inputUnit',
 	'options'			=> array('px'),
@@ -113,10 +113,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryColumnWidth'] = array
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryColumnWidthClass'] = array
 (
-  	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidthClass'],
+	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidthClass'],
 	'exclude'			=> true,
-  	'inputType'			=> 'text',
-  	'eval'				=> array('maxlength' => 64, 'rgxp' => 'extnd'),
+	'inputType'			=> 'text',
+	'eval'				=> array('maxlength' => 64, 'rgxp' => 'extnd'),
 	'sql'				=> "varchar(64) NOT NULL default ''"
 );
 
@@ -143,10 +143,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryGutter'] = array
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryGutterClass'] = array
 (
-  	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryGutterClass'],
+	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryGutterClass'],
 	'exclude'			=> true,
-  	'inputType'			=> 'text',
-  	'eval'				=> array('maxlength' => 64, 'rgxp' => 'extnd', 'tl_class' => 'w50'),
+	'inputType'			=> 'text',
+	'eval'				=> array('maxlength' => 64, 'rgxp' => 'extnd', 'tl_class' => 'w50'),
 	'sql'				=> "varchar(64) NOT NULL default ''"
 );
 
