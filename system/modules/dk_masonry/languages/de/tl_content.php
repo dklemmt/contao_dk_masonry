@@ -18,7 +18,7 @@
 $GLOBALS['TL_LANG']['tl_content']['masonry_image_legend'] = 'Bild-Einstellungen';
 $GLOBALS['TL_LANG']['tl_content']['masonry_layout_legend'] = 'Layout-Einstellungen';
 $GLOBALS['TL_LANG']['tl_content']['masonry_themes_legend'] = 'Verhalten und Aussehen';
-$GLOBALS['TL_LANG']['tl_content']['masonry_template_legend']	= 'Template-Einstellungen';
+$GLOBALS['TL_LANG']['tl_content']['masonry_template_legend'] = 'Template-Einstellungen';
 
 
 /**
@@ -73,7 +73,7 @@ $GLOBALS['TL_LANG']['tl_content']['dk_msryThemeSRC'][1] = 'Wählen Sie hier die 
  * References
  */
 $GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidthSelect']['fixed'][0] = 'fest';
-$GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidthSelect']['fixed'][1] = 'Die Breite der Spalten wird fest in Pixel angegeben. Es empfiehlt sich die Elementbreite zusätzlich per CSS zu setzen, da bei Größenänderungen des Fensters die Inhalte dann nicht vom Browser verkleinert werden was unter Umständen zu Layout-Fehlern führen kann.';
+$GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidthSelect']['fixed'][1] = 'Die Breite der Spalten wird fest in Pixel angegeben. Die Elementbreite sollte zusätzlich per CSS gesetzt werden. Bei Größenänderungen des Fensters werden dann die Inhalte nicht mehr vom Browser verkleinert.';
 $GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidthSelect']['class'][0] = 'CSS-Klasse';
 $GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidthSelect']['class'][1] = 'Die Breite der Spalten wird in der angegebenen CSS-Klasse definiert. Hier können auch prozentuale Werte vergeben werden. Diese Einstellung wird für "responsive" Layouts empfohlen, da dann mit "media queries" verschiedene Größen bestimmt werden können.';
 $GLOBALS['TL_LANG']['tl_content']['dk_msryGutterSelect']['fixed'][0] = 'fest';
