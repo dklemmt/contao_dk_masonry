@@ -25,7 +25,7 @@ namespace Dirch\masonry;
  * @author     Dirk Klemmt
  * @package    masonry
  */
-class Masonry extends \Frontend 
+class Masonry extends \Frontend
 {
 
 	public function createTemplateData(\Template $objTemplateHtml, \Template $objTemplateJs)
@@ -112,7 +112,7 @@ class Masonry extends \Frontend
 			$objTemplateJs->isResizeBound = 'isResizeBound: false';
 		}
 
-		// Masonry option 'transitionDuratio': default value is '400'
+		// Masonry option 'transitionDuration': default value is '400'
 		if ($objMasonry->dk_msryTransitionDuration != '400')
 		{
 			$objTemplateJs->transitionDuration = 'transitionDuration: "' . $objMasonry->dk_msryTransitionDuration . 'ms"';
@@ -138,11 +138,11 @@ class Masonry extends \Frontend
 			}
 		}
 
-		// ... the masonry javascript itselfs
+		// ... the masonry javascript itself
 		$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/dk_masonry/assets/js/masonry.pkgd.min.js|static';
 
 		// ... element dependent javascript caller
-		$GLOBALS['TL_JQUERY'][] = $objTemplateJs->parse();					
+		$GLOBALS['TL_JQUERY'][] = $objTemplateJs->parse();
 
 		// helper stuff:
 
