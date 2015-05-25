@@ -1,5 +1,8 @@
 Masonry - ein intelligentes Grid Layout für Contao
 ==================================================
+[![Version](http://img.shields.io/packagist/v/dklemmt/contao_dk_masonry.svg?style=flat-square)](https://packagist.org/packages/dklemmt/contao_dk_masonry)
+[![License](http://img.shields.io/packagist/l/dklemmt/contao_dk_masonry.svg?style=flat-square)](http://spdx.org/licenses/MIT.html)
+[![Downloads](http://img.shields.io/packagist/dt/dklemmt/contao_dk_masonry.svg?style=flat-square)](https://packagist.org/packages/dklemmt/contao_dk_masonry)
 
 ***Masonry*** ist ein JavaScript-Plugin von David DeSandro, das ein intelligentes *Grid Layout* implementiert. Masonry, aus dem Englischen für Mauerwerk, platziert die enthaltenen Elemente anhand ihrer Größe und des zur Verfügung stehenden vertikalen Platzes optimal verzahnt/versetzt wie ein Mauerwerk. 
 
@@ -26,4 +29,4 @@ Tipps/Hinweise
 --------------
 
 * Damit Masonry gestartet wird, muß im Seitenlayout *jQuery* zum Layout hinzugefügt werden.
-* Die Elementbreiten **sollten** per CSS definiert werden und zwar unabhängig der Einstellung der Spaltenbreite - selbst wenn diese gleich sind. Unterläßt man es, kann dies unter Umständen zu Layout-Fehlern führen.
+* Die Elementbreiten **müssen** zusätzlich per CSS definiert werden und zwar unabhängig der Einstellung der Spaltenbreite - selbst wenn diese gleich sind. Es kommt sonst zu Darstellungsfehlern.
