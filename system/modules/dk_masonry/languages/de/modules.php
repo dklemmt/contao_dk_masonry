@@ -1,15 +1,21 @@
-<?php 
+<?php
 
 /**
  * Contao Open Source CMS
- * 
- * Copyright (C) 2005-2014 Leo Feyer
- * 
+ *
+ * Copyright (C) 2005-2015 Leo Feyer
+ *
  * @package   masonry
  * @author    Dirk Klemmt
  * @license   MIT
- * @copyright Dirk Klemmt 2013-2014
+ * @copyright Dirk Klemmt 2013-2015
  */
+
+
+/**
+ * Back end modules
+ */
+$GLOBALS['TL_LANG']['MOD']['dk_masonry'][0] = 'Masonry - ein intelligentes Grid Layout';
 
 
 /**

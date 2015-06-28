@@ -1,14 +1,14 @@
-<?php 
+<?php
 
 /**
  * Contao Open Source CMS
- * 
- * Copyright (C) 2005-2014 Leo Feyer
- * 
+ *
+ * Copyright (C) 2005-2015 Leo Feyer
+ *
  * @package   masonry
  * @author    Dirk Klemmt
  * @license   MIT
- * @copyright Dirk Klemmt 2013-2014
+ * @copyright Dirk Klemmt 2013-2015
  */
 
 
@@ -16,9 +16,9 @@
  * Content elements
  */
 $GLOBALS['TL_CTE']['masonry_category'] = array(
-	'masonry_gallery'	=> 'masonry\ContentMasonryGallery',
-	'masonry_start'		=> 'masonry\ContentMasonryStart',
-	'masonry_stop'		=> 'masonry\ContentMasonryStop'
+    'masonry_gallery' => 'masonry\ContentMasonryGallery',
+    'masonry_start' => 'masonry\ContentMasonryStart',
+    'masonry_stop' => 'masonry\ContentMasonryStop'
 );
 
 

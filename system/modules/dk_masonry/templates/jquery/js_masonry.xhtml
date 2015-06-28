@@ -1,69 +1,78 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 (function($) {
-	var $masonry = $('#masonry_<?php echo $this->id; ?>');
-	$(document).ready(function() {
-<?php if ($this->isFitWidth): ?>
-		$masonry.css("margin", "0 auto");
-<?php endif; ?>
-		$masonry.addClass("loading").children()
-<?php if ($this->type == 'masonry_gallery'): ?>
-			.addClass("loading").find("img").css({ opacity: 0, visibility: "hidden" });
-<?php elseif ($this->type == 'masonry_start'): ?>
-			.addClass("masonry_item").find("img").addClass("loading").css({ opacity: 0, visibility: "hidden" });
-<?php endif; ?>
-<?php if ($this->gutterClass): ?>
-		$masonry.prepend("<div class='<?php echo $this->gutterClass; ?>'></div>");
-<?php endif; ?>
-<?php if ($this->columnWidthClass): ?>
-		$masonry.prepend("<div class='<?php echo $this->columnWidthClass; ?>'></div>");
-<?php endif; ?>		
-		initMasonry();
-		$masonry.imagesLoaded()
-			.progress(function(instance, image) {
-				$(image.img).css({ visibility: "visible" }).animate({ opacity: 1 }, 400)
-<?php if ($this->type == 'masonry_gallery'): ?>
-					.closest('.loading')
-<?php endif; ?>
-					.removeClass('loading');
-				$masonry.masonry();
-			})
-			.always(function() {
-				$masonry.removeClass("loading");
-			});
-	});
-	function initMasonry() {
-	    $masonry.masonry({
-<?php
-	if ($this->type == 'masonry_gallery') {
-		echo 'itemSelector: ".masonry_gallery"';
-	} elseif ($this->type == 'masonry_start') {
-		echo 'itemSelector: ".masonry_item"';
-	}
-	if ($this->columnWidth) {		
-		echo ', ' . $this->columnWidth;
-	}
-	if ($this->gutter) {
-		echo ', ' . $this->gutter;
-	}
-	if ($this->isFitWidth) {
-		echo ', ' . $this->isFitWidth;
-	}
-	if ($this->isOriginLeft) {
-		echo ', ' . $this->isOriginLeft;
-	}
-	if ($this->isOriginTop) {
-		echo ', ' . $this->isOriginTop;
-	}
-	if ($this->isResizeBound) {
-		echo ', ' . $this->isResizeBound;
-	}
-	if ($this->transitionDuration) {
-		echo ', ' . $this->transitionDuration;
-	}
-?>
-		});
-	};
+    var $masonry = $('#masonry_<?php echo $this->id; ?>');
+
+    $(document).ready(function() {
+
+        <?php if ($this->isFitWidth): ?>
+            $masonry.css("margin", "0 auto");
+        <?php endif; ?>
+
+        $masonry.addClass("loading").children()
+            <?php if ($this->type == 'masonry_gallery'): ?>
+                .addClass("loading").find("img").css({ opacity: 0, visibility: "hidden" });
+            <?php elseif ($this->type == 'masonry_start'): ?>
+                .addClass("masonry_item").find("img").addClass("loading").css({ opacity: 0, visibility: "hidden" });
+            <?php endif; ?>
+
+        <?php if ($this->gutterClass): ?>
+            $masonry.prepend("<div class='<?php echo $this->gutterClass; ?>'></div>");
+        <?php endif; ?>
+
+        <?php if ($this->columnWidthClass): ?>
+            $masonry.prepend("<div class='<?php echo $this->columnWidthClass; ?>'></div>");
+        <?php endif; ?>
+
+        initMasonry();
+
+        $masonry.imagesLoaded()
+            .progress(function(instance, image) {
+                $(image.img).css({ visibility: "visible" }).animate({ opacity: 1 }, 400)
+                    <?php if ($this->type == 'masonry_gallery'): ?>
+                        .closest('.loading')
+                    <?php endif; ?>
+                    .removeClass('loading');
+
+                $masonry.masonry();
+            })
+            .always(function() {
+                $masonry.removeClass("loading");
+            });
+    });
+
+    function initMasonry() {
+        $masonry.masonry({
+            <?php
+                if ($this->type == 'masonry_gallery') {
+                    echo 'itemSelector: ".masonry_gallery"';
+                } elseif ($this->type == 'masonry_start') {
+                    echo 'itemSelector: ".masonry_item"';
+                }
+                if ($this->columnWidth) {
+                    echo ', ' . $this->columnWidth;
+                }
+                if ($this->gutter) {
+                    echo ', ' . $this->gutter;
+                }
+                if ($this->isFitWidth) {
+                    echo ', ' . $this->isFitWidth;
+                }
+                if ($this->isOriginLeft) {
+                    echo ', ' . $this->isOriginLeft;
+                }
+                if ($this->isOriginTop) {
+                    echo ', ' . $this->isOriginTop;
+                }
+                if ($this->isResizeBound) {
+                    echo ', ' . $this->isResizeBound;
+                }
+                if ($this->transitionDuration) {
+                    echo ', ' . $this->transitionDuration;
+                }
+            ?>
+        });
+    };
 })(jQuery);
 /* ]]> */
 </script>
