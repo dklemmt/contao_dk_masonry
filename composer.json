@@ -1,34 +1,39 @@
 {
-	"name": "dklemmt/contao_dk_masonry",
-	"description": "Implementation of Masonry as extension for Contao Open Source CMS",
-	"keywords": ["contao", "gallery", "grid", "masonry"],
-	"type": "contao-module",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Dirk Klemmt",
-			"email": "dirch@quantentunnel.de",
-			"role": "Developer"
-		}
-	],
-	"support": {
-		"email": "dirch@quantentunnel.de",
-		"issues": "https://github.com/dklemmt/contao_dk_masonry/issues",
-		"source": "https://github.com/dklemmt/contao_dk_masonry"
-	},
-	"require": {
-		"php": ">=5.3",
-		"contao/core": "~3.2",
-		"contao-community-alliance/composer-installer": "*"
-	},
-	"replace": {
-		"contao-legacy/dk_masonry": "*"
-	},
-	"extra": {
-		"contao": {
-			"sources": {
-				"system/modules/dk_masonry": "system/modules/dk_masonry"
-			}
-		}
-	}
+  "name": "dklemmt/contao_dk_masonry",
+  "description": "Implementation of Masonry as extension for Contao Open Source CMS",
+  "keywords": [
+    "contao",
+    "gallery",
+    "grid",
+    "masonry"
+  ],
+  "type": "contao-module",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dirk Klemmt",
+      "email": "dirch@quantentunnel.de",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "dirch@quantentunnel.de",
+    "issues": "https://github.com/dklemmt/contao_dk_masonry/issues",
+    "source": "https://github.com/dklemmt/contao_dk_masonry"
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "contao/core": "~3.5",
+    "contao-community-alliance/composer-installer": "*"
+  },
+  "replace": {
+    "contao-legacy/dk_masonry": "*"
+  },
+  "extra": {
+    "contao": {
+      "sources": {
+        "system/modules/dk_masonry": "system/modules/dk_masonry"
+      }
+    }
+  }
 }
