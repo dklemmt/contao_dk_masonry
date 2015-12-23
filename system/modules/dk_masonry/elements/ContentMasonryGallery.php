@@ -115,15 +115,23 @@ class ContentMasonryGallery extends \ContentElement
             if ($objFiles->type == 'file') {
                 $objFile = new \File($objFiles->path, true);
 
-                if (!$objFile->isGdImage) {
+                if (!$objFile->isImage) {
                     continue;
                 }
 
                 $arrMeta = $this->getMetaData($objFiles->meta, $objPage->language);
 
+                if (empty($arrMeta)) {
+                    if ($this->metaIgnore) {
+                        continue;
+                    } elseif ($objPage->rootFallbackLanguage !== null) {
+                        $arrMeta = $this->getMetaData($objFiles->meta, $objPage->rootFallbackLanguage);
+                    }
+                }
+
                 // Use the file name as title if none is given
                 if ($arrMeta['title'] == '') {
-                    $arrMeta['title'] = specialchars(str_replace('_', ' ', $objFile->filename));
+                    $arrMeta['title'] = specialchars($objFile->basename);
                 }
 
                 // Add the image
@@ -155,15 +163,23 @@ class ContentMasonryGallery extends \ContentElement
 
                     $objFile = new \File($objSubfiles->path, true);
 
-                    if (!$objFile->isGdImage) {
+                    if (!$objFile->isImage) {
                         continue;
                     }
 
                     $arrMeta = $this->getMetaData($objSubfiles->meta, $objPage->language);
 
+                    if (empty($arrMeta)) {
+                        if ($this->metaIgnore) {
+                            continue;
+                        } elseif ($objPage->rootFallbackLanguage !== null) {
+                            $arrMeta = $this->getMetaData($objSubfiles->meta, $objPage->rootFallbackLanguage);
+                        }
+                    }
+
                     // Use the file name as title if none is given
                     if ($arrMeta['title'] == '') {
-                        $arrMeta['title'] = specialchars(str_replace('_', ' ', $objFile->filename));
+                        $arrMeta['title'] = specialchars($objFile->basename);
                     }
 
                     // Add the image
@@ -244,7 +260,7 @@ class ContentMasonryGallery extends \ContentElement
             $images = array_slice($images, 0, $this->dk_msryNumberOfItems);
         }
 
-        $intMaxWidth = (TL_MODE == 'BE') ? 160 : $GLOBALS['TL_CONFIG']['maxImageWidth'];
+        $intMaxWidth = (TL_MODE == 'BE') ? 160 : \Config::get('maxImageWidth');
         $strLightboxId = 'lightbox[lb' . $this->id . ']';
         $body = array();
 

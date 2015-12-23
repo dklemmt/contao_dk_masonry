@@ -19,7 +19,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'dk_msryColumnW
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'dk_msryGutterSelect';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'dk_msryThemeSelect';
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_gallery'] = '{type_legend},type,headline;{source_legend},dk_msryMultiSRC,dk_msrySortBy;{masonry_image_legend},dk_msryImageSize,dk_msryFullsize,dk_msryNumberOfItems;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_gallery'] = '{type_legend},type,headline;{source_legend},dk_msryMultiSRC,dk_msrySortBy,metaIgnore;{masonry_image_legend},dk_msryImageSize,dk_msryFullsize,dk_msryNumberOfItems;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['masonry_start'] = '{type_legend},type,headline;{masonry_layout_legend},dk_msryIsFitWidth,dk_msryColumnWidthSelect,dk_msryGutterSelect,dk_msryIsOriginLeft,dk_msryIsOriginTop;{masonry_themes_legend},dk_msryIsResizeBound,dk_msryTransitionDuration,dk_msryThemeSelect;{masonry_template_legend},dk_msryHtmlTpl,dk_msryJsTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['dk_msryColumnWidthSelect_fixed'] = 'dk_msryColumnWidth';
@@ -37,7 +37,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryMultiSRC'] = array
     'label'             => &$GLOBALS['TL_LANG']['tl_content']['dk_msryMultiSRC'],
     'exclude'           => true,
     'inputType'         => 'fileTree',
-    'eval'              => array('multiple' => true, 'fieldType' => 'checkbox', 'orderField' => 'orderSRC', 'files' => true, 'isGallery' => true, 'mandatory' => true),
+    'eval'              => array('multiple' => true, 'fieldType' => 'checkbox', 'orderField' => 'orderSRC', 'files' => true, 'isGallery' => true, 'extensions' => Config::get('validImageTypes'), 'mandatory' => true),
     'sql'               => "blob NULL"
 );
 
@@ -57,9 +57,9 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryImageSize'] = array
     'label'             => &$GLOBALS['TL_LANG']['tl_content']['dk_msryImageSize'],
     'exclude'           => true,
     'inputType'         => 'imageSize',
-    'options'           => $GLOBALS['TL_CROP'],
+    'options'           => System::getImageSizes(),
     'reference'         => &$GLOBALS['TL_LANG']['MSC'],
-    'eval'              => array('rgxp' => 'digit', 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'),
+    'eval'              => array('rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'),
     'sql'               => "varchar(64) NOT NULL default ''"
 );
 

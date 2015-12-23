@@ -5,9 +5,9 @@
             <div class="image_container">
 
                 <?php if ($col->href): ?>
-                    <a href="<?php echo $col->href; ?>"<?php echo $col->attributes; ?> title="<?php echo $col->alt; ?>"><img src="<?php echo $col->src; ?>"<?php echo $col->imgSize; ?> alt="<?php echo $col->alt; ?>" /></a>
+                    <a href="<?php echo $col->href; ?>"<?php echo $col->attributes; ?> title="<?php echo $col->alt; ?>"><?php $this->insert('picture_default', $col->picture); ?></a>
                 <?php else: ?>
-                    <img src="<?php echo $col->src; ?>"<?php echo $col->imgSize; ?> alt="<?php echo $col->alt; ?>" />
+                    <?php $this->insert('picture_default', $col->picture); ?>
                 <?php endif; ?>
 
                 <?php if ($col->caption): ?>
