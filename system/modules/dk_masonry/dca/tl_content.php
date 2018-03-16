@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryNumberOfItems'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryNumberOfItems'],
 	'exclude'			=> true,
 	'inputType'			=> 'text',
-	'eval'				=> array('maxlength' => 4, 'rgxp' => 'digit'),
+	'eval'				=> array('maxlength' => 4, 'rgxp' => 'digit', 'tl_class' => 'w50'),
 	'sql'				=> "smallint(5) unsigned NOT NULL default '0'"
 );
 
@@ -86,7 +86,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryIsFitWidth'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryIsFitWidth'],
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
-//	'eval'				=> array('submitOnChange' => true, 'tl_class' => 'w50'),
+	'eval'				=> array('tl_class' => 'w50'),
 	'sql'				=> "char(1) NOT NULL default ''"
 );
 
@@ -127,7 +127,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryGutterSelect'] = array
 	'inputType'			=> 'select',
 	'options'			=> array('fixed', 'class'),
 	'reference'			=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryGutterSelect'],
-	'eval'				=> array('helpwizard' => true, 'submitOnChange' => true, 'includeBlankOption' => true, 'tl_class' => 'clr w50'),
+	'eval'				=> array('helpwizard' => true, 'submitOnChange' => true, 'includeBlankOption' => true, 'tl_class' => 'w50'),
 	'sql'				=> "varchar(32) NOT NULL default ''"
 );
 
@@ -179,7 +179,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryIsResizeBound'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryIsResizeBound'],
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
-	'eval'				=> array('tl_class' => 'w50 m12'),
+	'eval'				=> array('tl_class' => 'w50'),
 	'sql'				=> "char(1) NOT NULL default '1'"
 );
 
@@ -188,7 +188,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryTransitionDuration'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryTransitionDuration'],
 	'exclude'			=> true,
 	'inputType'			=> 'text',
-	'eval'				=> array('maxlength' => 10, 'rgxp' => 'digit', 'tl_class' => 'w50'),
+	'eval'				=> array('maxlength' => 10, 'rgxp' => 'digit', 'tl_class' => 'clr w50'),
 	'sql'				=> "int(10) NOT NULL default '400'"
 );
 

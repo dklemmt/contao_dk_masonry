@@ -9,6 +9,11 @@
 			"name": "Dirk Klemmt",
 			"email": "dirch@quantentunnel.de",
 			"role": "Developer"
+		},
+		{
+			"name": "Fritz Michael Gschwantner",
+			"email": "fmg@inspiredminds.at",
+			"role": "Developer"
 		}
 	],
 	"support": {
@@ -18,8 +23,8 @@
 	},
 	"require": {
 		"php": ">=5.3",
-		"contao/core": "~3.2",
-		"contao-community-alliance/composer-installer": "*"
+		"contao/core-bundle": "^3.2|^4.4",
+		"contao-community-alliance/composer-plugin": "^2.4|^3.0"
 	},
 	"replace": {
 		"contao-legacy/dk_masonry": "*"
