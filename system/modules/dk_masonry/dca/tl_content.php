@@ -57,9 +57,9 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryImageSize'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_content']['dk_msryImageSize'],
 	'exclude'			=> true,
 	'inputType'			=> 'imageSize',
-	'options'			=> $GLOBALS['TL_CROP'],
+	'options'			=> \System::getImageSizes(),
 	'reference'			=> &$GLOBALS['TL_LANG']['MSC'],
-	'eval'				=> array('rgxp' => 'digit', 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'),
+	'eval'				=> array('rgxp'=>'natural', 'includeBlankOption'=>true, 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
 	'sql'				=> "varchar(64) NOT NULL default ''"
 );
 
