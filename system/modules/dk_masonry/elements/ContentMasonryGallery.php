@@ -138,13 +138,14 @@ class ContentMasonryGallery extends \ContentElement
 				// Add the image
 				$images[$objFiles->path] = array
 				(
-					'id'        => $objFiles->id,
-					'uuid'      => $objFiles->uuid,
-					'name'      => $objFile->basename,
-					'singleSRC' => $objFiles->path,
-					'alt'       => $arrMeta['title'],
-					'imageUrl'  => $arrMeta['link'],
-					'caption'   => $arrMeta['caption']
+					'id'         => $objFiles->id,
+					'uuid'       => $objFiles->uuid,
+					'name'       => $objFile->basename,
+					'singleSRC'  => $objFiles->path,
+					'alt'        => $arrMeta['title'],
+					'imageUrl'   => $arrMeta['link'],
+					'caption'    => $arrMeta['caption'],
+					'filesModel' => $objFiles->current()
 				);
 
 				$auxDate[] = $objFile->mtime;
@@ -186,13 +187,14 @@ class ContentMasonryGallery extends \ContentElement
 					// Add the image
 					$images[$objSubfiles->path] = array
 					(
-						'id'        => $objSubfiles->id,
-						'uuid'      => $objSubfiles->uuid,
-						'name'      => $objFile->basename,
-						'singleSRC' => $objSubfiles->path,
-						'alt'       => $arrMeta['title'],
-						'imageUrl'  => $arrMeta['link'],
-						'caption'   => $arrMeta['caption']
+						'id'         => $objSubfiles->id,
+						'uuid'       => $objSubfiles->uuid,
+						'name'       => $objFile->basename,
+						'singleSRC'  => $objSubfiles->path,
+						'alt'        => $arrMeta['title'],
+						'imageUrl'   => $arrMeta['link'],
+						'caption'    => $arrMeta['caption'],
+						'filesModel' => $objSubfiles->current()
 					);
 
 					$auxDate[] = $objFile->mtime;
@@ -280,7 +282,7 @@ class ContentMasonryGallery extends \ContentElement
 			$images[$i]['size'] = $this->dk_msryImageSize;
 			$images[$i]['fullsize'] = $this->dk_msryFullsize;
 
-			$this->addImageToTemplate($objCell, $images[$i], $intMaxWidth, $strLightboxId);
+			$this->addImageToTemplate($objCell, $images[$i], $intMaxWidth, $strLightboxId, $images[$i]['filesModel']);
 			$body[$i] = $objCell;
 		}
 
