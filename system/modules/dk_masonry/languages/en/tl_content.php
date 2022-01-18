@@ -24,12 +24,12 @@ $GLOBALS['TL_LANG']['tl_content']['masonry_template_legend'] = 'Template setting
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_content']['dk_msryMultiSRC'] = $GLOBALS['TL_LANG']['tl_content']['multiSRC'];
-$GLOBALS['TL_LANG']['tl_content']['dk_msrySortBy'] = $GLOBALS['TL_LANG']['tl_content']['sortBy'];
+$GLOBALS['TL_LANG']['tl_content']['dk_msryMultiSRC'] = &$GLOBALS['TL_LANG']['tl_content']['multiSRC'];
+$GLOBALS['TL_LANG']['tl_content']['dk_msrySortBy'] = &$GLOBALS['TL_LANG']['tl_content']['sortBy'];
 
-$GLOBALS['TL_LANG']['tl_content']['dk_msryImageSize'] = $GLOBALS['TL_LANG']['tl_content']['size'];
-$GLOBALS['TL_LANG']['tl_content']['dk_msryFullsize'] = $GLOBALS['TL_LANG']['tl_content']['fullsize'];
-$GLOBALS['TL_LANG']['tl_content']['dk_msryNumberOfItems'] = $GLOBALS['TL_LANG']['tl_content']['numberOfItems'];
+$GLOBALS['TL_LANG']['tl_content']['dk_msryImageSize'] = &$GLOBALS['TL_LANG']['tl_content']['size'];
+$GLOBALS['TL_LANG']['tl_content']['dk_msryFullsize'] = &$GLOBALS['TL_LANG']['tl_content']['fullsize'];
+$GLOBALS['TL_LANG']['tl_content']['dk_msryNumberOfItems'] = ['Number of items', 'Here you can limit the total number of items. Set to 0 to show all.'];
 
 $GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidthSelect'][0] = 'Column width definition';
 $GLOBALS['TL_LANG']['tl_content']['dk_msryColumnWidthSelect'][1] = 'Defines how the width of a column is determined. If nothing is defined the width of the first element will be used.';
