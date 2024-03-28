@@ -1,0 +1,8 @@
+
+<?php foreach ($this->body as $class=>$col): ?>
+    <?php if ($col->addImage): ?>
+        <div class="masonry_gallery" id="masonry_gallery_<?php echo $this->id; ?>_<?php echo $class; ?>">
+            <?php $this->insert('image', (array) $col); ?>
+        </div>
+    <?php endif; ?>
+<?php endforeach; ?>
