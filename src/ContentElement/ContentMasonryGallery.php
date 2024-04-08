@@ -100,10 +100,7 @@ class ContentMasonryGallery extends ContentElement
      */
     protected function compile(): void
     {
-        global $objPage;
-
         $images = [];
-        $auxDate = [];
         $objFiles = $this->objFiles;
         $container = System::getContainer();
         /** @var Studio $studio */
@@ -133,9 +130,8 @@ class ContentMasonryGallery extends ContentElement
                     'name' => $objFile->basename,
                     'singleSRC' => $objFiles->path,
                     'filesModel' => $objFiles->current(),
+                    'mtime' => $objFile->mtime,
                 ];
-
-                $auxDate[] = $objFile->mtime;
             } else {
                 // Folders
                 $objSubfiles = FilesModel::findByPid($objFiles->uuid);
@@ -163,62 +159,28 @@ class ContentMasonryGallery extends ContentElement
                         'name' => $objFile->basename,
                         'singleSRC' => $objSubfiles->path,
                         'filesModel' => $objSubfiles->current(),
+                        'mtime' => $objFile->mtime,
                     ];
-
-                    $auxDate[] = $objFile->mtime;
                 }
             }
         }
 
         // Sort array
         switch ($this->dk_msrySortBy) {
-            default:
             case 'name_asc':
-                uksort($images, 'basename_natcasecmp');
+                usort($images, static fn (array $a, array $b): int => strnatcmp($a['name'], $b['name']));
                 break;
 
             case 'name_desc':
-                uksort($images, 'basename_natcasercmp');
+                usort($images, static fn (array $a, array $b): int => strnatcmp($b['name'], $a['name']));
                 break;
 
             case 'date_asc':
-                array_multisort($images, SORT_NUMERIC, $auxDate, SORT_ASC);
+                usort($images, static fn (array $a, array $b): int => $a['mtime'] - $b['mtime']);
                 break;
 
             case 'date_desc':
-                array_multisort($images, SORT_NUMERIC, $auxDate, SORT_DESC);
-                break;
-
-            case 'meta':
-            // Backwards compatibility
-            case 'custom':
-                if ('' !== $this->orderSRC) {
-                    if ($tmp = StringUtil::deserialize($this->orderSRC, true)) {
-                        // Remove all values
-                        $arrOrder = array_map(
-                            static function (): void {
-                            },
-                            array_flip($tmp),
-                        );
-
-                        // Move the matching elements to their position in $arrOrder
-                        foreach ($images as $k => $v) {
-                            if (\array_key_exists($v['uuid'], $arrOrder)) {
-                                $arrOrder[$v['uuid']] = $v;
-                                unset($images[$k]);
-                            }
-                        }
-
-                        // Append the left-over images at the end
-                        if ([] !== $images) {
-                            $arrOrder = array_merge($arrOrder, array_values($images));
-                        }
-
-                        // Remove empty (unreplaced) entries
-                        $images = array_values(array_filter($arrOrder));
-                        unset($arrOrder);
-                    }
-                }
+                usort($images, static fn (array $a, array $b): int => $b['mtime'] - $a['mtime']);
                 break;
 
             case 'random':
