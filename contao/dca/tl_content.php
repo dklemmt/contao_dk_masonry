@@ -37,11 +37,11 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['dk_msryMultiSRC'] = [
     'inputType' => 'fileTree',
     'eval' => ['multiple' => true,
         'fieldType' => 'checkbox',
-        'orderField' => 'orderSRC',
         'files' => true,
         'isGallery' => true,
         'extensions' => '%contao.image.valid_extensions%',
         'mandatory' => true,
+        'isSortable' => true,
     ],
     'sql' => 'blob NULL',
 ];
