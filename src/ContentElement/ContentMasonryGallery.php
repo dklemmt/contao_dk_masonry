@@ -168,11 +168,11 @@ class ContentMasonryGallery extends ContentElement
         // Sort array
         switch ($this->dk_msrySortBy) {
             case 'name_asc':
-                usort($images, static fn (array $a, array $b): int => strnatcmp($a['name'], $b['name']));
+                usort($images, static fn (array $a, array $b): int => strnatcasecmp($a['name'], $b['name']));
                 break;
 
             case 'name_desc':
-                usort($images, static fn (array $a, array $b): int => strnatcmp($b['name'], $a['name']));
+                usort($images, static fn (array $a, array $b): int => strnatcasecmp($b['name'], $a['name']));
                 break;
 
             case 'date_asc':
