@@ -40,6 +40,23 @@
             });
     });
 
+    function accordionCompatibility() {
+        setTimeout(() => {
+            document.querySelectorAll('.content-accordion').forEach((accordion) => {
+                if (typeof accordion.handorgel === 'undefined') {
+                    return;
+                }
+
+                // Re-layout after an accordion fold has been opened
+                accordion.handorgel.on('fold:opened', (fold) => {
+                    if (fold.content.contains($masonry.get(0))) {
+                        $masonry.masonry('layout');
+                    }
+                });
+            });
+        });
+    }
+
     function initMasonry() {
         $masonry.masonry({
             <?php
@@ -71,6 +88,8 @@
                 }
             ?>
         });
+
+        accordionCompatibility();
     };
 })(jQuery);
 </script>
