@@ -24,21 +24,25 @@
         <?php endif; ?>
 
         initMasonry();
+        imagesLoaded();
+    });
 
+    function imagesLoaded() {
         $masonry.imagesLoaded()
             .progress(function(instance, image) {
-                $(image.img).css({ visibility: "visible" }).animate({ opacity: 1 }, 400)
+                $(image.img).css({ visibility: 'visible' }).animate({ opacity: 1 }, 400)
                     <?php if ($this->type == 'masonry_gallery'): ?>
                         .closest('.loading')
                     <?php endif; ?>
                     .removeClass('loading');
 
-                $masonry.masonry();
+                $masonry.masonry('layout');
             })
             .always(function() {
-                $masonry.removeClass("loading");
-            });
-    });
+                $masonry.removeClass('loading');
+            })
+        ;
+    }
 
     function accordionCompatibility() {
         setTimeout(() => {
@@ -51,6 +55,7 @@
                 accordion.handorgel.on('fold:opened', (fold) => {
                     if (fold.content.contains($masonry.get(0))) {
                         $masonry.masonry('layout');
+                        imagesLoaded();
                     }
                 });
             });
